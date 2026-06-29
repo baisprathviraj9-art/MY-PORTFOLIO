@@ -1,715 +1,755 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AIML Student Portfolio | 2026</title>
-    <meta name="description" content="AIML undergraduate student passionate about machine learning, prompt engineering, and building intelligent applications. Exploring the frontiers of AI in 2026." />
-    <meta name="keywords" content="AIML Student, Machine Learning, Artificial Intelligence, Deep Learning, PyTorch, LLM, Prompt Engineering, Computer Vision, NLP, Student Portfolio" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="AIML Student Portfolio | 2026" />
-    <meta property="og:description" content="Undergraduate AIML student building projects in machine learning, LLMs, and intelligent systems." />
-    <meta property="og:type" content="website" />
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Profile Ring Keyframes (inline to prevent cache issues) -->
-    <style>
-      @keyframes profileFloat {
-        0%   { transform: translateY(0px); }
-        50%  { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIML Student Portfolio | 2026</title>
+  <meta name="description"
+    content="AIML undergraduate student passionate about machine learning, prompt engineering, and building intelligent applications. Exploring the frontiers of AI in 2026." />
+  <meta name="keywords"
+    content="AIML Student, Machine Learning, Artificial Intelligence, Deep Learning, PyTorch, LLM, Prompt Engineering, Computer Vision, NLP, Student Portfolio" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="AIML Student Portfolio | 2026" />
+  <meta property="og:description"
+    content="Undergraduate AIML student building projects in machine learning, LLMs, and intelligent systems." />
+  <meta property="og:type" content="website" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Profile Ring Keyframes (inline to prevent cache issues) -->
+  <style>
+    @keyframes profileFloat {
+      0% {
+        transform: translateY(0px);
       }
-      @keyframes spaceWave {
-        0% {
-          transform: scale(0.9);
-          opacity: 0;
-        }
-        10% {
-          opacity: 0.8;
-        }
-        50% {
-          opacity: 0.45;
-          filter: blur(4px);
-        }
-        100% {
-          transform: scale(2.8);
-          opacity: 0;
-          filter: blur(12px);
-        }
+
+      50% {
+        transform: translateY(-15px);
       }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes spaceWave {
+      0% {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.8;
+      }
+
+      50% {
+        opacity: 0.45;
+        filter: blur(4px);
+      }
+
+      100% {
+        transform: scale(2.8);
+        opacity: 0;
+        filter: blur(12px);
+      }
+    }
+
+    .profile-container-wrapper {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Individual glowing waves representing a space curtain */
+    .space-wave {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: screen;
+      animation: spaceWave 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    /* Distinct colors & shadows for a cosmic curtain effect */
+    .wave-cyan {
+      border: 2px solid rgba(0, 242, 254, 0.45);
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, rgba(0, 242, 254, 0.15) 60%, transparent 100%);
+      box-shadow: 0 0 35px rgba(0, 242, 254, 0.4), inset 0 0 20px rgba(0, 242, 254, 0.1);
+      animation-delay: 0s;
+    }
+
+    .wave-purple {
+      border: 2px solid rgba(127, 0, 255, 0.45);
+      background: radial-gradient(circle, rgba(127, 0, 255, 0.05) 0%, rgba(127, 0, 255, 0.15) 60%, transparent 100%);
+      box-shadow: 0 0 40px rgba(127, 0, 255, 0.4), inset 0 0 20px rgba(127, 0, 255, 0.1);
+      animation-delay: 2s;
+    }
+
+    .wave-blue {
+      border: 2px solid rgba(79, 172, 254, 0.45);
+      background: radial-gradient(circle, rgba(79, 172, 254, 0.05) 0%, rgba(79, 172, 254, 0.15) 60%, transparent 100%);
+      box-shadow: 0 0 35px rgba(79, 172, 254, 0.4), inset 0 0 20px rgba(79, 172, 254, 0.1);
+      animation-delay: 4s;
+    }
+
+    .profile-image-circle {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      z-index: 10;
+      background: #08080C;
+    }
+
+    .profile-image-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
       .profile-container-wrapper {
-        position: relative;
-        width: 320px;
-        height: 320px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 240px;
+        height: 240px;
       }
-      /* Individual glowing waves representing a space curtain */
-      .space-wave {
-        position: absolute;
-        width: 270px;
-        height: 270px;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 1;
-        mix-blend-mode: screen;
-        animation: spaceWave 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-      }
-      /* Distinct colors & shadows for a cosmic curtain effect */
-      .wave-cyan {
-        border: 2px solid rgba(0, 242, 254, 0.45);
-        background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, rgba(0, 242, 254, 0.15) 60%, transparent 100%);
-        box-shadow: 0 0 35px rgba(0, 242, 254, 0.4), inset 0 0 20px rgba(0, 242, 254, 0.1);
-        animation-delay: 0s;
-      }
-      .wave-purple {
-        border: 2px solid rgba(127, 0, 255, 0.45);
-        background: radial-gradient(circle, rgba(127, 0, 255, 0.05) 0%, rgba(127, 0, 255, 0.15) 60%, transparent 100%);
-        box-shadow: 0 0 40px rgba(127, 0, 255, 0.4), inset 0 0 20px rgba(127, 0, 255, 0.1);
-        animation-delay: 2s;
-      }
-      .wave-blue {
-        border: 2px solid rgba(79, 172, 254, 0.45);
-        background: radial-gradient(circle, rgba(79, 172, 254, 0.05) 0%, rgba(79, 172, 254, 0.15) 60%, transparent 100%);
-        box-shadow: 0 0 35px rgba(79, 172, 254, 0.4), inset 0 0 20px rgba(79, 172, 254, 0.1);
-        animation-delay: 4s;
-      }
+
       .profile-image-circle {
-        position: relative;
-        width: 270px;
-        height: 270px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 4px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-        z-index: 10;
-        background: #08080C;
+        width: 200px;
+        height: 200px;
       }
-      .profile-image-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-      }
-      
-      @media (max-width: 768px) {
-        .profile-container-wrapper {
-          width: 240px;
-          height: 240px;
-        }
-        .profile-image-circle {
-          width: 200px;
-          height: 200px;
-        }
-        .space-wave {
-          width: 200px;
-          height: 200px;
-        }
-      }
-    </style>
-  </head>
 
-  <body>
-    <!-- Background Neural Network Canvas -->
-    <canvas id="neural-canvas"></canvas>
-    <div class="background-glow"></div>
-    <div class="background-glow-2"></div>
+      .space-wave {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
 
-    <!-- ================================================================== -->
-    <!-- HEADER & NAVIGATION                                                  -->
-    <!-- ================================================================== -->
-    <header>
-      <div class="container">
-        <!-- Logo: No "FE.DEV" — branded as AI.dev for an AI/ML engineer -->
-        <a href="#home" class="logo">
-          <span>Prithviraj</span>.dev
+<body>
+  <!-- Background Neural Network Canvas -->
+  <canvas id="neural-canvas"></canvas>
+  <div class="background-glow"></div>
+  <div class="background-glow-2"></div>
+
+  <!-- ================================================================== -->
+  <!-- HEADER & NAVIGATION                                                  -->
+  <!-- ================================================================== -->
+  <header>
+    <div class="container">
+      <!-- Logo: No "FE.DEV" — branded as AI.dev for an AI/ML engineer -->
+      <a href="#home" class="logo">
+        <span>Prithviraj</span>.dev
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#knowledge">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Header CTA - No "Hire Me" button -->
+      <div class="header-cta">
+        <a href="#contact" class="btn-connect">
+          <i class="fas fa-satellite-dish"></i> Let's Connect
         </a>
+        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
 
-        <!-- Desktop Navigation -->
-        <nav>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#knowledge">Research</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </nav>
+  <!-- ================================================================== -->
+  <!-- HERO SECTION                                                          -->
+  <!-- ================================================================== -->
+  <section id="home" class="hero-wrapper">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Left: Text Content -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Open to Internships &amp; Collaborations
+          </div>
 
-        <!-- Header CTA - No "Hire Me" button -->
-        <div class="header-cta">
-          <a href="#contact" class="btn-connect">
-            <i class="fas fa-satellite-dish"></i> Let's Connect
-          </a>
-          <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
+          <h1 class="hero-title">
+            AIML Student<br />
+            Learning to Build <span class="gradient-text">Intelligent</span><br />
+            Systems with AI
+          </h1>
+
+          <p class="hero-description">
+            Undergraduate student in the Artificial Intelligence &amp; Machine Learning department.
+            Passionate about hands-on ML projects, large language models, and prompt engineering —
+            turning course knowledge into real, working AI applications.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <i class="fas fa-brain"></i>&nbsp; View My Projects
+            </a>
+            <a href="Prithviraj_Singh_Bais_Resume.pdf" target="_blank" rel="noopener" class="btn-secondary">
+              <i class="fas fa-file-pdf"></i>&nbsp; Resume PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Profile Image in floating space waves -->
+        <div class="hero-art-container" style="display: flex; justify-content: center; align-items: center;">
+          <div
+            style="animation: profileFloat 4.5s ease-in-out infinite; display: flex; justify-content: center; align-items: center;">
+            <div class="profile-container-wrapper">
+              <!-- Cosmic Wave Curtain Layers -->
+              <div class="space-wave wave-cyan"></div>
+              <div class="space-wave wave-purple"></div>
+              <div class="space-wave wave-blue"></div>
+
+              <!-- Main Profile Image -->
+              <div class="profile-image-circle">
+                <img src="images/profile.jpg" alt="Prithviraj Singh">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- ABOUT ME SECTION                                                      -->
+  <!-- ================================================================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Left Column -->
+        <div class="about-left">
+          <div class="section-tag">About Me</div>
+          <h2>Exploring<br />Artificial<br />Intelligence</h2>
+
+          <!-- Stats Row -->
+          <div class="about-stats">
+            <div class="stat-item glass-panel">
+              <span class="stat-num">10+</span>
+              <span class="stat-label">ML Projects Built</span>
+            </div>
+            <div class="stat-item glass-panel">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Years Learning ML &amp; AI</span>
+            </div>
+            <div class="stat-item glass-panel">
+              <span class="stat-num">15+</span>
+              <span class="stat-label">Research Papers Read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="about-right">
+          <p>
+            I'm a current undergraduate student in the Artificial Intelligence &amp; Machine Learning
+            department, deeply curious about the mathematical foundations that power modern AI systems.
+            My coursework and personal projects span supervised learning, neural networks, NLP, and
+            the exciting world of large language models.
+          </p>
+          <p>
+            I enjoy bridging theory and practice — taking what I learn in class and turning it into
+            working projects. From training custom classifiers and building RAG pipelines to experimenting
+            with prompt engineering techniques on state-of-the-art LLMs, I'm always building something new.
+          </p>
+          <p>
+            I'm actively looking for internship opportunities and open-source collaborations where I
+            can contribute meaningfully, learn from experienced engineers, and help build AI systems
+            that make a real-world impact.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- CORE SKILLS SECTION                                                  -->
+  <!-- ================================================================== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">Core Skills</h2>
+        <p class="section-desc">
+          Skills I've built through coursework, self-study, and hands-on project work in AI &amp; ML.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Skill Card 1: Machine Learning -->
+        <div class="glass-panel skill-card">
+          <div class="skill-icon-wrap">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Machine Learning</h3>
+          <p>Designing, training, and evaluating models across NLP, vision, and tabular domains — from classical
+            algorithms to modern transformer architectures.</p>
+          <div class="skill-list">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Transformers</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">HuggingFace</span>
+            <span class="skill-tag">LLMs / RAG</span>
+            <span class="skill-tag">ViT / CLIP</span>
+            <span class="skill-tag">Diffusion Models</span>
+          </div>
+        </div>
+
+        <!-- Skill Card 2: Prompt Engineering -->
+        <div class="glass-panel skill-card">
+          <div class="skill-icon-wrap">
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          <h3>Prompt Engineering</h3>
+          <p>Crafting, optimizing, and chaining prompts for large language models to maximize output quality, reasoning
+            accuracy, and task-specific performance.</p>
+          <div class="skill-list">
+            <span class="skill-tag">Chain-of-Thought</span>
+            <span class="skill-tag">Few-Shot Learning</span>
+            <span class="skill-tag">RAG Pipelines</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">OpenAI API</span>
+            <span class="skill-tag">Gemini API</span>
+            <span class="skill-tag">System Prompts</span>
+            <span class="skill-tag">Instruction Tuning</span>
+          </div>
+        </div>
+
+        <!-- Skill Card 3: Languages & Tools -->
+        <div class="glass-panel skill-card">
+          <div class="skill-icon-wrap">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Languages & Tools</h3>
+          <p>Proficient in the languages and utilities that power modern data science, ML research, and engineering
+            workflows.</p>
+          <div class="skill-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Linux / Bash</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- SELECTED PROJECTS SECTION                                            -->
+  <!-- ================================================================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-desc">
+          Personal and academic AI/ML projects — built to learn, experiment, and solve real problems.
+        </p>
+      </div>
+
+      <div class="projects-list">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">AI OS</span>
+              <span class="project-tag">Automation</span>
+              <span class="project-tag">Agent</span>
+            </div>
+            <h3>ARIAOSAgent</h3>
+            <p class="project-desc">
+              An intelligent operating system agent capable of performing computer-use tasks, automating desktop
+              workflows, and operating seamlessly within a virtualized environment. Designed to interpret complex
+              instructions and navigate interfaces autonomously.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/baisprathviraj9-art/ARIAOSAgent" target="_blank" rel="noopener"
+                class="btn-project">
+                View Project <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://github.com/baisprathviraj9-art/ARIAOSAgent" target="_blank" rel="noopener"
+                class="btn-project">
+                <i class="fab fa-github"></i>&nbsp; GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-visual">
+            <img src="images/project1.png" alt="ARIAOSAgent Visual"
+              style="width:100%; height:100%; object-fit:cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">NLP</span>
+              <span class="project-tag">Speech-to-Text</span>
+              <span class="project-tag">LLM</span>
+            </div>
+            <h3>AI Interviewer</h3>
+            <p class="project-desc">
+              An interactive AI-driven system designed to conduct mock interviews. It leverages large language models to
+              analyze resumes, generate domain-specific technical questions, and evaluate candidate responses in
+              real-time to provide actionable feedback.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/baisprathviraj9-art/AI-Interviewer" target="_blank" rel="noopener"
+                class="btn-project">
+                View Project <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://github.com/baisprathviraj9-art/AI-Interviewer" target="_blank" rel="noopener"
+                class="btn-project">
+                <i class="fab fa-github"></i>&nbsp; GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-visual">
+            <img src="images/project2.png" alt="AI Interviewer Visual"
+              style="width:100%; height:100%; object-fit:cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Streamlit</span>
+              <span class="project-tag">HuggingFace</span>
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">Generative AI</span>
+            </div>
+            <h3>Zenith AI</h3>
+            <p class="project-desc">
+              A comprehensive AI assistant platform built to showcase advanced machine learning capabilities. It
+              integrates various AI models for natural language processing, generative text, and intelligent data
+              analysis into a unified, user-friendly interface.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/baisprathviraj9-art/Zenith-AI" target="_blank" rel="noopener"
+                class="btn-project">
+                View Project <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://github.com/baisprathviraj9-art/Zenith-AI" target="_blank" rel="noopener"
+                class="btn-project">
+                <i class="fab fa-github"></i>&nbsp; GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-visual">
+            <img src="images/project3.png" alt="Zenith AI Visual"
+              style="width:100%; height:100%; object-fit:cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Projects Button -->
+      <div class="projects-footer">
+        <a href="https://github.com/baisprathviraj9-art" target="_blank" rel="noopener" class="btn-secondary">
+          <i class="fab fa-github"></i>&nbsp; More Projects on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- SHARING KNOWLEDGE & TOOLS  (No Reusable tab, No FE.DEV references) -->
+  <!-- ================================================================== -->
+  <section id="knowledge" class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Knowledge</span>
+        <h2 class="section-title">Research & Resources</h2>
+        <p class="section-desc">
+          Technical articles and engineering templates from the AI/ML developer community.
+        </p>
+      </div>
+
+      <div class="knowledge-layout">
+        <!-- Left: Tabs — only Articles and Resources (no Reusable) -->
+        <div class="knowledge-nav">
+          <button class="tab-btn active" data-tab="articles" id="tab-articles">
+            <span><i class="fas fa-file-alt" style="margin-right:0.75rem;"></i>Articles</span>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <button class="tab-btn" data-tab="resources" id="tab-resources">
+            <span><i class="fas fa-cubes" style="margin-right:0.75rem;"></i>Resources</span>
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
-      </div>
-    </header>
 
-    <!-- ================================================================== -->
-    <!-- HERO SECTION                                                          -->
-    <!-- ================================================================== -->
-    <section id="home" class="hero-wrapper">
-      <div class="container">
-        <div class="hero-grid">
-          <!-- Left: Text Content -->
-          <div class="hero-content">
-            <div class="hero-badge">
-              <span class="pulse-dot"></span>
-              Open to Internships &amp; Collaborations
-            </div>
-
-            <h1 class="hero-title">
-              AIML Student<br />
-              Learning to Build <span class="gradient-text">Intelligent</span><br />
-              Systems with AI
-            </h1>
-
-            <p class="hero-description">
-              Undergraduate student in the Artificial Intelligence &amp; Machine Learning department.
-              Passionate about hands-on ML projects, large language models, and prompt engineering —
-              turning course knowledge into real, working AI applications.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#projects" class="btn-primary">
-                <i class="fas fa-brain"></i>&nbsp; View My Projects
-              </a>
-              <a href="Prithviraj_Singh_Bais_Resume.pdf" target="_blank" rel="noopener" class="btn-secondary">
-                <i class="fas fa-file-pdf"></i>&nbsp; Resume PDF
-              </a>
-            </div>
+        <!-- Right: Search + Cards -->
+        <div class="knowledge-content-wrap">
+          <div class="search-bar-wrap">
+            <i class="fas fa-search search-icon"></i>
+            <!-- No "FE.DEV" in this search field. -->
+            <input type="search" class="search-input" id="search-input" placeholder="Search technical articles..."
+              aria-label="Search knowledge hub" />
           </div>
 
-          <!-- Right: Profile Image in floating space waves -->
-          <div class="hero-art-container" style="display: flex; justify-content: center; align-items: center;">
-            <div style="animation: profileFloat 4.5s ease-in-out infinite; display: flex; justify-content: center; align-items: center;">
-              <div class="profile-container-wrapper">
-                <!-- Cosmic Wave Curtain Layers -->
-                <div class="space-wave wave-cyan"></div>
-                <div class="space-wave wave-purple"></div>
-                <div class="space-wave wave-blue"></div>
-                
-                <!-- Main Profile Image -->
-                <div class="profile-image-circle">
-                  <img src="images/profile.jpg" alt="Prithviraj Singh">
-                </div>
-              </div>
-            </div>
+          <div class="cards-container" id="cards-container">
+            <!-- Cards are rendered dynamically by script.js -->
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================================================================== -->
-    <!-- ABOUT ME SECTION                                                      -->
-    <!-- ================================================================== -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="about-grid">
-          <!-- Left Column -->
-          <div class="about-left">
-            <div class="section-tag">About Me</div>
-            <h2>Exploring<br />Artificial<br />Intelligence</h2>
-
-            <!-- Stats Row -->
-            <div class="about-stats">
-              <div class="stat-item glass-panel">
-                <span class="stat-num">10+</span>
-                <span class="stat-label">ML Projects Built</span>
-              </div>
-              <div class="stat-item glass-panel">
-                <span class="stat-num">2+</span>
-                <span class="stat-label">Years Learning ML &amp; AI</span>
-              </div>
-              <div class="stat-item glass-panel">
-                <span class="stat-num">15+</span>
-                <span class="stat-label">Research Papers Read</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column -->
-          <div class="about-right">
-            <p>
-              I'm a current undergraduate student in the Artificial Intelligence &amp; Machine Learning
-              department, deeply curious about the mathematical foundations that power modern AI systems.
-              My coursework and personal projects span supervised learning, neural networks, NLP, and
-              the exciting world of large language models.
-            </p>
-            <p>
-              I enjoy bridging theory and practice — taking what I learn in class and turning it into
-              working projects. From training custom classifiers and building RAG pipelines to experimenting
-              with prompt engineering techniques on state-of-the-art LLMs, I'm always building something new.
-            </p>
-            <p>
-              I'm actively looking for internship opportunities and open-source collaborations where I
-              can contribute meaningfully, learn from experienced engineers, and help build AI systems
-              that make a real-world impact.
-            </p>
-          </div>
-        </div>
+  <!-- ================================================================== -->
+  <!-- PROFESSIONAL EXPERIENCE — Vertical Card Timeline                   -->
+  <!-- ================================================================== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">My Journey</span>
+        <h2 class="section-title">Professional Journey</h2>
+        <p class="section-desc">
+          My academic path, learning milestones, and hands-on experiences as a student of Artificial Intelligence &amp;
+          Machine Learning.
+        </p>
       </div>
-    </section>
 
-    <!-- ================================================================== -->
-    <!-- CORE SKILLS SECTION                                                  -->
-    <!-- ================================================================== -->
-    <section id="skills" class="section">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-tag">What I Know</span>
-          <h2 class="section-title">Core Skills</h2>
-          <p class="section-desc">
-            Skills I've built through coursework, self-study, and hands-on project work in AI &amp; ML.
-          </p>
-        </div>
+      <div class="exp-timeline">
 
-        <div class="skills-grid">
-          <!-- Skill Card 1: Machine Learning -->
-          <div class="glass-panel skill-card">
-            <div class="skill-icon-wrap">
-              <i class="fas fa-brain"></i>
-            </div>
-            <h3>Machine Learning</h3>
-            <p>Designing, training, and evaluating models across NLP, vision, and tabular domains — from classical algorithms to modern transformer architectures.</p>
-            <div class="skill-list">
-              <span class="skill-tag">PyTorch</span>
-              <span class="skill-tag">TensorFlow</span>
-              <span class="skill-tag">Transformers</span>
-              <span class="skill-tag">Scikit-Learn</span>
-              <span class="skill-tag">HuggingFace</span>
-              <span class="skill-tag">LLMs / RAG</span>
-              <span class="skill-tag">ViT / CLIP</span>
-              <span class="skill-tag">Diffusion Models</span>
-            </div>
+        <!-- Entry 1: Right side -->
+        <div class="exp-item">
+          <div class="exp-side"></div>
+          <div class="exp-connector">
+            <div class="exp-dot"></div>
           </div>
-
-          <!-- Skill Card 2: Prompt Engineering -->
-          <div class="glass-panel skill-card">
-            <div class="skill-icon-wrap">
-              <i class="fas fa-comment-dots"></i>
-            </div>
-            <h3>Prompt Engineering</h3>
-            <p>Crafting, optimizing, and chaining prompts for large language models to maximize output quality, reasoning accuracy, and task-specific performance.</p>
-            <div class="skill-list">
-              <span class="skill-tag">Chain-of-Thought</span>
-              <span class="skill-tag">Few-Shot Learning</span>
-              <span class="skill-tag">RAG Pipelines</span>
-              <span class="skill-tag">LangChain</span>
-              <span class="skill-tag">OpenAI API</span>
-              <span class="skill-tag">Gemini API</span>
-              <span class="skill-tag">System Prompts</span>
-              <span class="skill-tag">Instruction Tuning</span>
-            </div>
-          </div>
-
-          <!-- Skill Card 3: Languages & Tools -->
-          <div class="glass-panel skill-card">
-            <div class="skill-icon-wrap">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3>Languages & Tools</h3>
-            <p>Proficient in the languages and utilities that power modern data science, ML research, and engineering workflows.</p>
-            <div class="skill-list">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">NumPy</span>
-              <span class="skill-tag">Pandas</span>
-              <span class="skill-tag">Matplotlib</span>
-              <span class="skill-tag">Jupyter</span>
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">Linux / Bash</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================== -->
-    <!-- SELECTED PROJECTS SECTION                                            -->
-    <!-- ================================================================== -->
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-tag">My Work</span>
-          <h2 class="section-title">Selected Projects</h2>
-          <p class="section-desc">
-            Personal and academic AI/ML projects — built to learn, experiment, and solve real problems.
-          </p>
-        </div>
-
-        <div class="projects-list">
-
-          <!-- Project 1 -->
-          <div class="project-card">
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">AI OS</span>
-                <span class="project-tag">Automation</span>
-                <span class="project-tag">Agent</span>
-              </div>
-              <h3>ARIAOSAgent</h3>
-              <p class="project-desc">
-                An intelligent operating system agent capable of performing computer-use tasks, automating desktop workflows, and operating seamlessly within a virtualized environment. Designed to interpret complex instructions and navigate interfaces autonomously.
-              </p>
-              <div class="project-links">
-                <a href="https://github.com/baisprathviraj9-art/ARIAOSAgent" target="_blank" rel="noopener" class="btn-project">
-                  View Project <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://github.com/baisprathviraj9-art/ARIAOSAgent" target="_blank" rel="noopener" class="btn-project">
-                  <i class="fab fa-github"></i>&nbsp; GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-visual">
-              <img src="images/project1.png" alt="ARIAOSAgent Visual" style="width:100%; height:100%; object-fit:cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card">
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">NLP</span>
-                <span class="project-tag">Speech-to-Text</span>
-                <span class="project-tag">LLM</span>
-              </div>
-              <h3>AI Interviewer</h3>
-              <p class="project-desc">
-                An interactive AI-driven system designed to conduct mock interviews. It leverages large language models to analyze resumes, generate domain-specific technical questions, and evaluate candidate responses in real-time to provide actionable feedback.
-              </p>
-              <div class="project-links">
-                <a href="https://github.com/baisprathviraj9-art/AI-Interviewer" target="_blank" rel="noopener" class="btn-project">
-                  View Project <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://github.com/baisprathviraj9-art/AI-Interviewer" target="_blank" rel="noopener" class="btn-project">
-                  <i class="fab fa-github"></i>&nbsp; GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-visual">
-              <img src="images/project2.png" alt="AI Interviewer Visual" style="width:100%; height:100%; object-fit:cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card">
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="project-tag">Streamlit</span>
-                <span class="project-tag">HuggingFace</span>
-                <span class="project-tag">PyTorch</span>
-                <span class="project-tag">Generative AI</span>
-              </div>
-              <h3>Zenith AI</h3>
-              <p class="project-desc">
-                A comprehensive AI assistant platform built to showcase advanced machine learning capabilities. It integrates various AI models for natural language processing, generative text, and intelligent data analysis into a unified, user-friendly interface.
-              </p>
-              <div class="project-links">
-                <a href="https://github.com/baisprathviraj9-art/Zenith-AI" target="_blank" rel="noopener" class="btn-project">
-                  View Project <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://github.com/baisprathviraj9-art/Zenith-AI" target="_blank" rel="noopener" class="btn-project">
-                  <i class="fab fa-github"></i>&nbsp; GitHub
-                </a>
-              </div>
-            </div>
-            <div class="project-visual">
-              <img src="images/project3.png" alt="Zenith AI Visual" style="width:100%; height:100%; object-fit:cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          <div class="exp-side">
+            <div class="exp-card glass-panel">
+              <div class="exp-date-pill"><i class="fas fa-calendar-alt"></i> 2023 &mdash; Present</div>
+              <h3 class="exp-role">B.Tech &mdash; Artificial Intelligence &amp; Machine Learning</h3>
+              <p class="exp-company-line"><i class="fas fa-university"></i> College / University &nbsp;&bull;&nbsp; AIML
+                Department</p>
+              <ul class="exp-bullets">
+                <li>Studying core AI/ML subjects including Deep Learning, NLP, and Computer Vision.</li>
+                <li>Implementing neural networks and ML models from scratch using PyTorch and Scikit-Learn.</li>
+                <li>Building personal projects like RAG bots and sentiment analysis apps to apply concepts.</li>
+              </ul>
             </div>
           </div>
         </div>
 
-        <!-- View All Projects Button -->
-        <div class="projects-footer">
-          <a href="https://github.com/baisprathviraj9-art" target="_blank" rel="noopener" class="btn-secondary">
-            <i class="fab fa-github"></i>&nbsp; More Projects on GitHub
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================== -->
-    <!-- SHARING KNOWLEDGE & TOOLS  (No Reusable tab, No FE.DEV references) -->
-    <!-- ================================================================== -->
-    <section id="knowledge" class="section">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-tag">Knowledge</span>
-          <h2 class="section-title">Research & Resources</h2>
-          <p class="section-desc">
-            Technical articles and engineering templates from the AI/ML developer community.
-          </p>
-        </div>
-
-        <div class="knowledge-layout">
-          <!-- Left: Tabs — only Articles and Resources (no Reusable) -->
-          <div class="knowledge-nav">
-            <button class="tab-btn active" data-tab="articles" id="tab-articles">
-              <span><i class="fas fa-file-alt" style="margin-right:0.75rem;"></i>Articles</span>
-              <i class="fas fa-chevron-right"></i>
-            </button>
-            <button class="tab-btn" data-tab="resources" id="tab-resources">
-              <span><i class="fas fa-cubes" style="margin-right:0.75rem;"></i>Resources</span>
-              <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-
-          <!-- Right: Search + Cards -->
-          <div class="knowledge-content-wrap">
-            <div class="search-bar-wrap">
-              <i class="fas fa-search search-icon"></i>
-              <!-- No "FE.DEV" in this search field. -->
-              <input
-                type="search"
-                class="search-input"
-                id="search-input"
-                placeholder="Search technical articles..."
-                aria-label="Search knowledge hub"
-              />
-            </div>
-
-            <div class="cards-container" id="cards-container">
-              <!-- Cards are rendered dynamically by script.js -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================== -->
-    <!-- PROFESSIONAL EXPERIENCE — Vertical Card Timeline                   -->
-    <!-- ================================================================== -->
-    <section id="experience" class="section">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-tag">My Journey</span>
-          <h2 class="section-title">Professional Journey</h2>
-          <p class="section-desc">
-            My academic path, learning milestones, and hands-on experiences as a student of Artificial Intelligence &amp; Machine Learning.
-          </p>
-        </div>
-
-        <div class="exp-timeline">
-
-          <!-- Entry 1: Right side -->
-          <div class="exp-item">
-            <div class="exp-side"></div>
-            <div class="exp-connector"><div class="exp-dot"></div></div>
-            <div class="exp-side">
-              <div class="exp-card glass-panel">
-                <div class="exp-date-pill"><i class="fas fa-calendar-alt"></i> 2023 &mdash; Present</div>
-                <h3 class="exp-role">B.Tech &mdash; Artificial Intelligence &amp; Machine Learning</h3>
-                <p class="exp-company-line"><i class="fas fa-university"></i> College / University &nbsp;&bull;&nbsp; AIML Department</p>
-                <ul class="exp-bullets">
-                  <li>Studying core AI/ML subjects including Deep Learning, NLP, and Computer Vision.</li>
-                  <li>Implementing neural networks and ML models from scratch using PyTorch and Scikit-Learn.</li>
-                  <li>Building personal projects like RAG bots and sentiment analysis apps to apply concepts.</li>
-                </ul>
+        <!-- Entry 2: Left side -->
+        <div class="exp-item exp-item--reverse">
+          <div class="exp-side">
+            <div class="exp-card glass-panel">
+              <div class="exp-date-pill exp-date-pill--purple"><i class="fas fa-calendar-alt"></i> 2024 &mdash; 2025
               </div>
+              <h3 class="exp-role">AI/ML Intern (Virtual)</h3>
+              <p class="exp-company-line exp-right-align"><i class="fas fa-laptop-code"></i> Self-Driven Projects &amp;
+                Online Training</p>
+              <ul class="exp-bullets exp-bullets--right">
+                <li>Built and evaluated end-to-end ML models using public datasets.</li>
+                <li>Applied advanced prompt engineering (Chain-of-Thought, few-shot) with Gemini and OpenAI APIs.</li>
+                <li>Competed in Kaggle NLP challenges to improve feature engineering skills.</li>
+              </ul>
             </div>
           </div>
+          <div class="exp-connector">
+            <div class="exp-dot exp-dot--purple"></div>
+          </div>
+          <div class="exp-side"></div>
+        </div>
 
-          <!-- Entry 2: Left side -->
-          <div class="exp-item exp-item--reverse">
-            <div class="exp-side">
-              <div class="exp-card glass-panel">
-                <div class="exp-date-pill exp-date-pill--purple"><i class="fas fa-calendar-alt"></i> 2024 &mdash; 2025</div>
-                <h3 class="exp-role">AI/ML Intern (Virtual)</h3>
-                <p class="exp-company-line exp-right-align"><i class="fas fa-laptop-code"></i> Self-Driven Projects &amp; Online Training</p>
-                <ul class="exp-bullets exp-bullets--right">
-                  <li>Built and evaluated end-to-end ML models using public datasets.</li>
-                  <li>Applied advanced prompt engineering (Chain-of-Thought, few-shot) with Gemini and OpenAI APIs.</li>
-                  <li>Competed in Kaggle NLP challenges to improve feature engineering skills.</li>
-                </ul>
+        <!-- Entry 3: Right side -->
+        <div class="exp-item">
+          <div class="exp-side"></div>
+          <div class="exp-connector">
+            <div class="exp-dot exp-dot--emerald"></div>
+          </div>
+          <div class="exp-side">
+            <div class="exp-card glass-panel">
+              <div class="exp-date-pill exp-date-pill--emerald"><i class="fas fa-calendar-alt"></i> 2021 &mdash; 2023
               </div>
-            </div>
-            <div class="exp-connector"><div class="exp-dot exp-dot--purple"></div></div>
-            <div class="exp-side"></div>
-          </div>
-
-          <!-- Entry 3: Right side -->
-          <div class="exp-item">
-            <div class="exp-side"></div>
-            <div class="exp-connector"><div class="exp-dot exp-dot--emerald"></div></div>
-            <div class="exp-side">
-              <div class="exp-card glass-panel">
-                <div class="exp-date-pill exp-date-pill--emerald"><i class="fas fa-calendar-alt"></i> 2021 &mdash; 2023</div>
-                <h3 class="exp-role">Higher Secondary &mdash; Science (PCM + CS)</h3>
-                <p class="exp-company-line"><i class="fas fa-school"></i> School &nbsp;&bull;&nbsp; Class XII</p>
-                <ul class="exp-bullets">
-                  <li>Built a strong mathematical and computational foundation for AI algorithms.</li>
-                  <li>Learned Python, data structures, and wrote early automation scripts.</li>
-                  <li>Self-studied introductory ML concepts via online resources before college.</li>
-                </ul>
-              </div>
+              <h3 class="exp-role">Higher Secondary &mdash; Science (PCM + CS)</h3>
+              <p class="exp-company-line"><i class="fas fa-school"></i> School &nbsp;&bull;&nbsp; Class XII</p>
+              <ul class="exp-bullets">
+                <li>Built a strong mathematical and computational foundation for AI algorithms.</li>
+                <li>Learned Python, data structures, and wrote early automation scripts.</li>
+                <li>Self-studied introductory ML concepts via online resources before college.</li>
+              </ul>
             </div>
           </div>
-
         </div>
 
       </div>
-    </section>
 
-    <!-- ================================================================== -->
-    <!-- CONTACT / COLLABORATION SECTION (No Hire Me)                        -->
-    <!-- ================================================================== -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-tag">Say Hello</span>
-          <h2 class="section-title">Let's Connect</h2>
-          <p class="section-desc">
-            Whether it's an internship opportunity, an interesting project, or just a chat about AI — I'm always happy to connect.
-          </p>
-        </div>
+    </div>
+  </section>
 
-        <div class="contact-grid">
-          <!-- Left: Contact Form -->
-          <div class="contact-left">
-            <form class="contact-form" id="contact-form" novalidate>
-              <div class="form-group-row">
-                <div class="form-group">
-                  <label class="form-label" for="form-name">Full Name</label>
-                  <input
-                    type="text"
-                    id="form-name"
-                    class="form-input"
-                    placeholder="Your name"
-                    autocomplete="name"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="form-email">Email Address</label>
-                  <input
-                    type="email"
-                    id="form-email"
-                    class="form-input"
-                    placeholder="your@email.com"
-                    autocomplete="email"
-                  />
-                </div>
-              </div>
+  <!-- ================================================================== -->
+  <!-- CONTACT / COLLABORATION SECTION (No Hire Me)                        -->
+  <!-- ================================================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Say Hello</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-desc">
+          Whether it's an internship opportunity, an interesting project, or just a chat about AI — I'm always happy to
+          connect.
+        </p>
+      </div>
 
+      <div class="contact-grid">
+        <!-- Left: Contact Form -->
+        <div class="contact-left">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group-row">
               <div class="form-group">
-                <label class="form-label" for="form-subject">Subject</label>
-                <input
-                  type="text"
-                  id="form-subject"
-                  class="form-input"
-                  placeholder="AI research collaboration, ML system consulting…"
-                />
+                <label class="form-label" for="form-name">Full Name</label>
+                <input type="text" id="form-name" class="form-input" placeholder="Your name" autocomplete="name" />
               </div>
-
               <div class="form-group">
-                <label class="form-label" for="form-message">Message</label>
-                <textarea
-                  id="form-message"
-                  class="form-textarea"
-                  placeholder="Describe your project, idea, or question..."
-                ></textarea>
-              </div>
-
-              <div class="submit-wrap">
-                <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-family:inherit;width:100%;">
-                  <i class="fas fa-paper-plane"></i>&nbsp; Send Message
-                </button>
-              </div>
-
-              <div class="form-feedback" id="form-feedback"></div>
-            </form>
-          </div>
-
-          <!-- Right: Contact Info -->
-          <div class="contact-right">
-            <div class="contact-info-block">
-              <p>
-                I'm a motivated AIML student actively seeking internships, open-source
-                contributions, and project collaborations. If you're working on something cool
-                in AI or ML, or want to discuss ideas, research, or opportunities — feel free to
-                reach out!
-              </p>
-
-              <div class="contact-details-list">
-                <div class="contact-detail-item">
-                  <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                  </div>
-                  <div class="contact-detail-content">
-                    <span>Email</span>
-                    <a href="mailto:hello@aiml.dev">hello@aiml.dev</a>
-                  </div>
-                </div>
-
-                <div class="contact-detail-item">
-                  <div class="contact-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                  </div>
-                  <div class="contact-detail-content">
-                    <span>LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/prathviraj-bais-3a4a5641a/" target="_blank" rel="noopener">/in/prathviraj-bais</a>
-                  </div>
-                </div>
-
-                <div class="contact-detail-item">
-                  <div class="contact-icon">
-                    <i class="fab fa-github"></i>
-                  </div>
-                  <div class="contact-detail-content">
-                    <span>GitHub</span>
-                    <a href="https://github.com/baisprathviraj9-art" target="_blank" rel="noopener">@baisprathviraj9-art</a>
-                  </div>
-                </div>
-
-
+                <label class="form-label" for="form-email">Email Address</label>
+                <input type="email" id="form-email" class="form-input" placeholder="your@email.com"
+                  autocomplete="email" />
               </div>
             </div>
 
-            <div class="social-links">
-              <a href="https://github.com/baisprathviraj9-art" class="social-icon github" target="_blank" rel="noopener" aria-label="GitHub Profile">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/prathviraj-bais-3a4a5641a/" class="social-icon linkedin" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="https://www.instagram.com/prithviraj_singh_97/?hl=en" class="social-icon instagram" target="_blank" rel="noopener" aria-label="Instagram Profile" style="color:#E1306C">
-                <i class="fab fa-instagram"></i>
-              </a>
+            <div class="form-group">
+              <label class="form-label" for="form-subject">Subject</label>
+              <input type="text" id="form-subject" class="form-input"
+                placeholder="AI research collaboration, ML system consulting…" />
             </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-message">Message</label>
+              <textarea id="form-message" class="form-textarea"
+                placeholder="Describe your project, idea, or question..."></textarea>
+            </div>
+
+            <div class="submit-wrap">
+              <button type="submit" class="btn-primary"
+                style="border:none;cursor:pointer;font-family:inherit;width:100%;">
+                <i class="fas fa-paper-plane"></i>&nbsp; Send Message
+              </button>
+            </div>
+
+            <div class="form-feedback" id="form-feedback"></div>
+          </form>
+        </div>
+
+        <!-- Right: Contact Info -->
+        <div class="contact-right">
+          <div class="contact-info-block">
+            <p>
+              I'm a motivated AIML student actively seeking internships, open-source
+              contributions, and project collaborations. If you're working on something cool
+              in AI or ML, or want to discuss ideas, research, or opportunities — feel free to
+              reach out!
+            </p>
+
+            <div class="contact-details-list">
+              <div class="contact-detail-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-detail-content">
+                  <span>Email</span>
+                  <a href="mailto:hello@aiml.dev">hello@aiml.dev</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="contact-detail-content">
+                  <span>LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/prathviraj-bais-3a4a5641a/" target="_blank"
+                    rel="noopener">/in/prathviraj-bais</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-detail-content">
+                  <span>GitHub</span>
+                  <a href="https://github.com/baisprathviraj9-art" target="_blank"
+                    rel="noopener">@baisprathviraj9-art</a>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/baisprathviraj9-art" class="social-icon github" target="_blank" rel="noopener"
+              aria-label="GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/prathviraj-bais-3a4a5641a/" class="social-icon linkedin"
+              target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/prithviraj_singh_97/?hl=en" class="social-icon instagram" target="_blank"
+              rel="noopener" aria-label="Instagram Profile" style="color:#E1306C">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================================================================== -->
-    <!-- FOOTER                                                               -->
-    <!-- ================================================================== -->
-    <footer>
-      <div class="container">
-        <p>© 2026 AIML Student Portfolio. All rights reserved.</p>
-        <div class="footer-tech">
-          <span>Built with</span>
-          <span style="color:var(--text-muted);">HTML, CSS & JavaScript</span>
-          <span>•</span>
-          <span>Powered by neural curiosity</span>
-        </div>
+  <!-- ================================================================== -->
+  <!-- FOOTER                                                               -->
+  <!-- ================================================================== -->
+  <footer>
+    <div class="container">
+      <p>© 2026 AIML Student Portfolio. All rights reserved.</p>
+      <div class="footer-tech">
+        <span>Built with</span>
+        <span style="color:var(--text-muted);">HTML, CSS & JavaScript</span>
+        <span>•</span>
+        <span>Powered by neural curiosity</span>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Back to top" title="Back to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-    <!-- Main JavaScript -->
-    <script src="script.js"></script>
-  </body>
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
+
 </html>
