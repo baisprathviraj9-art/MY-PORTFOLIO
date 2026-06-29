@@ -15,6 +15,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
+    <!-- Profile Ring Keyframes (inline to prevent cache issues) -->
+    <style>
+      @keyframes profileFloat {
+        0%   { transform: translateY(0px); }
+        50%  { transform: translateY(-18px); }
+        100% { transform: translateY(0px); }
+      }
+      @keyframes ringRotate {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+    </style>
   </head>
 
   <body>
@@ -90,12 +102,17 @@
             </div>
           </div>
 
-          <!-- Right: Profile Image in floating oval ring -->
+          <!-- Right: Profile Image in floating circle ring -->
           <div class="hero-art-container" style="display: flex; justify-content: center; align-items: center;">
-            <div class="profile-float-wrapper">
-              <div class="profile-oval-ring">
-                <div class="profile-oval-ring-inner">
-                  <img src="images/profile.jpg" alt="Prithviraj Singh" class="profile-hero-img">
+            <div style="animation: profileFloat 4s ease-in-out infinite; display: flex; justify-content: center; align-items: center;">
+              <div style="position: relative; width: 300px; height: 300px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <!-- Rotating colorful ring -->
+                <div style="position: absolute; inset: -5px; border-radius: 50%; background: conic-gradient(from 0deg, #00f2fe 0deg, #4facfe 60deg, #7f00ff 120deg, #00F5A0 180deg, #ff6b6b 240deg, #ffd700 300deg, #00f2fe 360deg); animation: ringRotate 4s linear infinite; z-index: 0;"></div>
+                <!-- Dark gap -->
+                <div style="position: absolute; inset: 5px; border-radius: 50%; background: #08080C; z-index: 1;"></div>
+                <!-- Profile photo -->
+                <div style="position: relative; width: 278px; height: 278px; border-radius: 50%; overflow: hidden; z-index: 2;">
+                  <img src="images/profile.jpg" alt="Prithviraj Singh" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
                 </div>
               </div>
             </div>
